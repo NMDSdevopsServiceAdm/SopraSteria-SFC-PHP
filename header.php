@@ -12,7 +12,7 @@
 
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="sfc/assets/css/main.css" type="text/css">
+  <link rel="stylesheet" href="./SopraSteria-SFC-PHP/assets/css/main.css" type="text/css">
 </head>
 <body>
 
@@ -21,7 +21,7 @@
       <div class="container">
         <div class="row">
           <div class="logo col-2">
-            <img src="./sfc/assets/img/logo.png" alt="Skills for Care" />
+            <img src="./SopraSteria-SFC-PHP/assets/img/logo.png" alt="Skills for Care" />
           </div>
           <div class="strapline col-6">Adult Social Care Workforce Data Set</div>
           <div class="auth-controls col-12 col-md-4 col-lg-4">

@@ -5,7 +5,7 @@
         <span class="footer-tagline">In partnership with</span>
         <div class="row">
           <div class="logo col-12 col-lg-4">
-            <img src="./sfc/assets/img/dohasc-logo.png" alt="Department of health and social care" />
+            <img src="./SopraSteria-SFC-PHP/assets/img/dohasc-logo.png" alt="Department of health and social care" />
           </div>
 
           <ul class="footer-nav-list col-12 col-lg-8">
