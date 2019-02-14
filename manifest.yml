@@ -1,0 +1,5 @@
+applications:
+- name: sfcphp
+  memory: 1G
+  disk_quota: 1GB
+  buildpack: php_buildpack
