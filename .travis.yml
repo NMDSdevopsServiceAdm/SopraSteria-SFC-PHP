@@ -1,7 +1,6 @@
 language: node_js
 php:
 - '7.0'
-sudo: true
 deploy:
   - provider: cloudfoundry
     edge: true  
