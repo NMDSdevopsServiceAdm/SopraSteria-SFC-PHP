@@ -1,8 +1,7 @@
 language: php  
-  - 7.0
-  # aliased to a recent hhvm version
+  - 7.0  
   - hhvm
- # optionally set up exclutions and allowed failures in the matrix
+ 
 matrix:
   exclude:
     - php: hhvm      
