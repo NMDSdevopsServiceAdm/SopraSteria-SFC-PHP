@@ -3,6 +3,8 @@ language: php
   - hhvm
 dist: trusty 
 sudo: required
+install:
+  - composer install --no-interaction
 matrix:
   exclude:
     - php: hhvm      
