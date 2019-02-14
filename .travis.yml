@@ -1,7 +1,8 @@
 language: php  
   - 7.0  
   - hhvm
- 
+dist: trusty 
+sudo: required
 matrix:
   exclude:
     - php: hhvm      
