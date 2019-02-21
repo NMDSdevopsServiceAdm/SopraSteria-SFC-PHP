@@ -1,39 +1,29 @@
-# see http://about.travis-ci.org/docs/user/languages/php/ for more hints
 language: php
-
-# list any PHP version you want to test against
 env:
-  - DB=pgsql
+- DB=pgsql
 php:
-  # using major version aliases
-
-  - 5.6
-  # aliased to a recent 7.x version
-    # aliased to a recent hhvm version
-  - hhvm
-
-# optionally set up exclusions and allowed failures in the matrix
+- 5.6
+- hhvm
 matrix:
   exclude:
-    - php: hhvm
-      env: DB=pgsql
+  - php: hhvm
+    env: DB=pgsql
   allow_failures:
-    - php: 7.0
-    - php: hhvm
+  - php: 7.0
+  - php: hhvm
 before_script:
-  - if [[ "$DB" == "pgsql" ]]; then psql -c "DROP DATABASE IF EXISTS hello_world_test;" -U postgres; fi
-  - if [[ "$DB" == "pgsql" ]]; then psql -c "create database hello_world_test;" -U postgres; fi
-script: 
-    phpunit --configuration phpunit_pgsql.xml --coverage-text
+- if [[ "$DB" == "pgsql" ]]; then psql -c "DROP DATABASE IF EXISTS hello_world_test;"
+  -U postgres; fi
+- if [[ "$DB" == "pgsql" ]]; then psql -c "create database hello_world_test;" -U postgres;
+  fi
+script: phpunit --configuration phpunit_pgsql.xml --coverage-text
 deploy:
-  - provider: cloudfoundry
-    edge: true  
-    username: nmdsdevopsserviceadm@hotmail.com
-    password:
-        secure: r89Uyb5bguHi29rgek1yNu700/BbFYSGkgXylDP+/cQsE+qkYBARtXjwIxC5NlY7XWKaUjbfWw65ob9Skc4FG36BWKMc0dWanOUKja4gq/Ghgk4MOGwJO892O3xccsCfM72U8+xC1Oe9HlMbWu7NdrK8lAOoLvwbYdNH9SGB0zAyZASKuEpgjtgs5jdslxpOVz91DN3bK0t6AhH78+UMhodkA/3pG9hG5mtwsVfEPqPUYJV6RWyL0LGrQW4M60Q+SXJq9gjN4kO5t2abSfe8z6PnElGtrwQz5BUsnTI9pISe7Jby3s9fglG49HN0416zwxP3ezgtiD0MRHuTi0B2f2JeoDpV/Wphnve8gSjo6BI1+7guLgiumFMZyfWe+nIa/LC4fFBxqxyCcPPtOUv1Gba/HwyJFEXKAp1s+u7PQWV0HX8eRjg8Uky5XWA0cn06PquqmMjerVBQWSriv2qrY/e3JkbURAnHyQfhDdGbbkkI6sbh964nf+L7/CUme0Q2w/jppXdVd9VJv0xxQyrGCVVYl1n3jUj0A1BNmzLfbl2Oe0KpFyyNN3SVvo+HvW27hcsEWKeKJ1TP6pl8Kf7d/YMYVDD7LUpmu9bUcFx6b8j99ZzjcnLH3VUyE1Ffryyq558wpSanXmNKBJaldKyLawitfrtO06x/YZrdNwd1Bik=
-    api: https://api.cloud.service.gov.uk
-    organization: dhsc-skills-for-care-nmds-sc-2
-    space: sandbox
-    manifest: manifest.yml
-    on:
-        branch: master  
+  provider: cloudfoundry
+  api: https://api.cloud.service.gov.uk
+  username: nmdsdevopsserviceadm@hotmail.com
+  password:
+    secure: G1xNsuYXUepoRjnEuBZbhsqi14+O3IzQc5NCiZ53Oxj0fDSiTa47uYL4/U+isUdLuWphAOg6PU/gi81rjPxk91JTdR+bPk3E/en1ygAl/mS4/TzJbhCsr4i2/qqQ2wRi3CooF6bmtc2b/upORJK9xooKG+G5EZrtgqrzK56d0Y6n3/GKGsolgfzPT9V8oeT//CQYv6TcMsu+PCVYdBEjKeuknAqRJXtrfRnssPDntb/3U/5NEjI9c0OU73u12X6MGxi1zKNl0ro26zAVE46uPAO/ta0BaRlYtdjwsEfPES7JMenAL8sluY9OMTFpwDuJeo4loNeJY6/Avxz78XI29IILVqb95w8UbGGwOrchwGXlgN7Nm7k4xJHOBWQalx7OofC4lo1nq+PCjreo6e6QdaeFniwtVExg5iseGsuaGCNmE65vxIKYwsfZpTJBTzfrvP9Bp0vcD+4eMJGLD/ih6NE3NyIcSfz6k/MN+CF7uUlBgCVt3STPfgluNVtoYt6qqcj2tpru+c6DL7SMolhU9v/gqSFKLqpN0A/UAFqlvU9kAPdUfx+McRDJ6HV4slTGenrMDbmiI3wa0jhNKFHgtl+Ge8svM0h6JcAXOr6FlsMl3by2jmXdATDcorCwUl9E0yQXHrOLxwsv5wK1tFf6qRTsp2JKy/3Zf9gM0OViHsM=
+  organization: dhsc-skills-for-care-nmds-sc-2
+  space: sandbox
+  on:
+    repo: NMDSdevopsServiceAdm/SopraSteria-SFC-PHP
